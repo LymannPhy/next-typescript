@@ -28,7 +28,7 @@ export default function NavbarComponent() {
       <Navbar className="bg-blue-200">
         <NavbarBrand>
           <Image width={40} className="mr-4 rounded-full" height={40} src={"/assets/pic.jpg"} alt="" />
-          <p className="font-bold text-inherit">ACME</p>
+          <p className="font-bold text-inherit">CSTAD</p>
         </NavbarBrand>
 
         <NavbarContent className="hidden sm:flex gap-4" justify="center">

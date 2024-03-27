@@ -1,31 +1,35 @@
 import { Suspense } from "react";
 import LoadingComponent from "./loading";
-import { HomeCardComponent } from "@/components/cards/HomeCardComponent";
-import { HomeType } from "@/types/home";
+import { UserType } from "@/types/users";
+import UserCard from "@/components/cards/UserCardComponent";
 
-async function fetchProduct() {
-  const product = await fetch("https://fakestoreapi.com/products", {
-    cache: "no-store"
-  });
-  const res = await product.json();
-  return res;
-}
+// async function fetchUsers() {
+//   const users = await fetch("https://jsonplaceholder.org/users", {
+//     cache: "no-store"
+//   });
+//   const res = await users.json();
+//   return res;
+// }
+
 
 export default async function Home() {
-  const product = await fetchProduct();
+  // const users = await fetchUsers();
 
   return (
     <>
+      <div className="mt-10 flex justify-center text-center flex-col flex-wrap gap-5">
+        <h1 className="font-bold text-large uppercase">Enjoy buying every types of product here</h1>
+        <h1 className="font-kantumruy">សូមស្វាគមន៍មកកាន់ CSTAD Online Shopping</h1>
+      </div>
       <div className="mt-10 flex justify-center flex-wrap gap-5">
         <Suspense fallback={<LoadingComponent/>} >
-        {product?.map((pro: HomeType) => (
-          <HomeCardComponent
-            image={pro.image}
-            title={pro.title}
-            price={pro.price}
-            key={pro.id}
+        {/* {users?.map((user: UserType) => (
+          <UserCard
+            key={user.id}
+            lastname={user.lastname}
+            email={user.email}
           />
-        ))}
+        ))} */}
         </Suspense>
       </div>
     </>

@@ -5,6 +5,8 @@ import NextUILayout from "./NextUIProvider";
 import NavbarComponent from "@/components/layouts/NavbarComponent";
 import { Suspense } from "react";
 import LoadingComponent from "./loading";
+import { ErrorBoundary } from "next/dist/client/components/error-boundary";
+import Error from "./error";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,7 +28,11 @@ export default function RootLayout({
       <body className={inter.className}>
         <NextUILayout>
           <NavbarComponent />
-         {children}
+          <Suspense> 
+            <ErrorBoundary errorComponent={Error}>
+              {children}
+            </ErrorBoundary>
+          </Suspense>
         </NextUILayout>
       </body>
     </html>

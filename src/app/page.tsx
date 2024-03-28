@@ -3,13 +3,13 @@ import LoadingComponent from "./loading";
 import { UserType } from "@/types/users";
 import UserCard from "@/components/cards/UserCardComponent";
 import type { Metadata } from "next";
-// async function fetchUsers() {
-//   const users = await fetch("https://jsonplaceholder.org/users", {
-//     cache: "no-store"
-//   });
-//   const res = await users.json();
-//   return res;
-// }
+async function fetchUsers() {
+  const user = await fetch("https://dummyjson.com/users", {
+    cache: "no-store"
+  });
+  const res = await user.json();
+  return res.users;
+}
 
 export const metadata: Metadata = {
   title: "Home",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  // const users = await fetchUsers();
+  const users = await fetchUsers();
 
   return (
     <>
@@ -35,13 +35,14 @@ export default async function Home() {
       </div>
       <div className="mt-10 flex justify-center flex-wrap gap-5">
         <Suspense fallback={<LoadingComponent/>} >
-        {/* {users?.map((user: UserType) => (
+        {users?.map((user: UserType) => (
           <UserCard
             key={user.id}
-            lastname={user.lastname}
-            email={user.email}
+            image={user.image}
+            username={user.username}
+            university={user.university}
           />
-        ))} */}
+        ))}
         </Suspense>
       </div>
     </>

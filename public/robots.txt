@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /search
+Disallow: /category/
+Disallow: /tag/
+Allow: /
+Sitemap: https://next-typescript-9qrjsn1ln-lymannphys-projects.vercel.app/sitemap.xml

@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import LoadingComponent from "./loading";
 import { UserType } from "@/types/users";
 import UserCard from "@/components/cards/UserCardComponent";
-
+import type { Metadata } from "next";
 // async function fetchUsers() {
 //   const users = await fetch("https://jsonplaceholder.org/users", {
 //     cache: "no-store"
@@ -11,6 +11,18 @@ import UserCard from "@/components/cards/UserCardComponent";
 //   return res;
 // }
 
+export const metadata: Metadata = {
+  title: "Home",
+  description: "This is a place where you can find and buy any types of product",
+  keywords: ["shop", "discount", "promotion", "coupon"],
+  openGraph: {
+    title: "Home",
+    description: "This is a place where you can find and buy any types of product",
+    images: [
+      "https://i.pinimg.com/564x/76/e6/b9/76e6b9355380c85fe9a80dddae96172c.jpg"
+    ]
+  }
+};
 
 export default async function Home() {
   // const users = await fetchUsers();
